@@ -3,8 +3,7 @@ import tkinter as tk
 from tkinter import scrolledtext
 
 # Setze deinen OpenAI API-Schlüssel hier ein
-openai.api_key = ''
-
+openai.api_key = "DEIN_API_SCHLÜSSEL_HIER"
 def chat_with_gpt(prompt):
     try:
         response = openai.ChatCompletion.create(
@@ -44,6 +43,9 @@ def on_focus_out(event):
 # GUI erstellen
 root = tk.Tk()
 root.title("ChatGPT von Muffl")
+# Icon hinzufügen
+root.iconbitmap("Icon.ico") 
+#root.iconbitmap("chatgpt_icon_48x48.ico") 
 
 # Chat-Verlauf
 chat_history = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=100, height=40, state='normal')

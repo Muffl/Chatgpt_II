@@ -27,7 +27,7 @@ def chat_with_gpt(prompt):
         )
         if 'choices' in response and len(response['choices']) > 0:
             return response['choices'][0]['message']['content'].strip()
-            except Exception as e:
+    except Exception as e:
         return f"Ein Fehler ist aufgetreten: {e}"
     
 # Definiere die Funktion, die aufgerufen wird, wenn der Benutzer auf den Senden-Button klickt

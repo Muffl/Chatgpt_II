@@ -7,13 +7,16 @@ from dotenv import load_dotenv
 
 
 # Lese den API aus der .env Datei
+
+load_dotenv()
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 if not openai.api_key:
     print("Fehler: OPENAI_API_KEY ist nicht gesetzt. Bitte überprüfe die .env-Datei.")
     exit(1)
 
-# Globale Variable für das ausgewählte Modell
+# Globale Variable für das ausgewhlte Modell
 selected_model = "gpt-4o"  # Standardmodell
 
 def set_model(model_name):

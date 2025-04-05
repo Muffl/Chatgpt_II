@@ -3,6 +3,7 @@ import openai
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
 from dotenv import load_dotenv
+from ctypes import windll
 
 
 
@@ -80,6 +81,9 @@ root.title("ChatGPT von Muffl")
 icon_path = "Icon.ico"
 if os.path.exists(icon_path):
     root.iconbitmap(icon_path)
+    if os.name == "nt":  # Nur auf Windows
+        app_id = "ChatGPT.Muffl.App"  # Eine eindeutige App-ID
+        windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
 else:
     print("Warnung: Icon.ico nicht gefunden. Standard-Icon wird verwendet.")
 
@@ -95,6 +99,9 @@ menu_bar.add_cascade(label="Datei", menu=file_menu)
 model_menu = tk.Menu(menu_bar, tearoff=0)
 model_menu.add_command(label="GPT-3.5", command=lambda: set_model("gpt-3.5-turbo"))
 model_menu.add_command(label="GPT-4", command=lambda: set_model("gpt-4"))
+model_menu.add_command(label="GPT-4o", command=lambda: set_model("gpt-4o"))
+model_menu.add_command(label="4o-mini", command=lambda: set_model("gpt-4o-mini"))
+
 menu_bar.add_cascade(label="Model", menu=model_menu)
 
 # Parameter-Menü

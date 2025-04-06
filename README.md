@@ -1,5 +1,8 @@
 🧠 ChatGPT von Muffl
 
+![image](https://github.com/user-attachments/assets/23f70d3c-0ed4-497a-a821-6cd5f475ccdf)
+
+
 Ein lokal laufender Chat-Client für OpenAI's GPT-Modelle mit grafischer Benutzeroberfläche (Tkinter). Unterstützt GPT-3.5, GPT-4, GPT-4o und GPT-4o-mini.
 
 

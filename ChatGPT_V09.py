@@ -33,10 +33,10 @@ def chat_with_gpt():
         response = openai.ChatCompletion.create(
             model=selected_model,
             messages=chat_memory,  # Sende den gesamten Chatverlauf
-            max_tokens=2000,
-            temperature=0.7,
-            top_p=1.0,
-            frequency_penalty=0.0,
+            max_tokens=2048,  # Maximal 2048 Tokens für die Antwort
+            temperature=0.7, # Temperatur für Kreativität
+            top_p=1.0, 
+            frequency_penalty=0.0, 
             presence_penalty=0.0
         )
         if 'choices' in response and len(response['choices']) > 0:
@@ -124,15 +124,25 @@ menu_bar.add_cascade(label="Model", menu=model_menu)
 
 # Parameter-Menü
 parameter_menu = tk.Menu(menu_bar, tearoff=0)
-parameter_menu.add_command(label="Max Tokens")
-parameter_menu.add_command(label="Genauigkeit")
-parameter_menu.add_command(label="Kreativität")
+#parameter_menu.add_command(label="Max Tokens")
+parameter_menu.add_command(label="Temperatur")
+parameter_menu.add_command(label="Tokens")
+parameter_menu.add_command(label="Gedächnis")
 
 menu_bar.add_cascade(label="Parameter", menu=parameter_menu)
 
 # Hilfe-Menü
 help_menu = tk.Menu(menu_bar, tearoff=0)
-help_menu.add_command(label="Über", command=lambda: messagebox.showinfo("Über", "ChatGPT von Muffl\nVersion 0.7"))
+help_menu.add_command(label="Über", command=lambda: messagebox.showinfo("Über", "ChatGPT von Muffl\nVersion 0.9\n(c) 2025 by Muffl"))
+help_menu.add_command(label="Über Temperatur", command=lambda: messagebox.showinfo("Was bedeutet...", "Temperatur:\n\nSteuert die Kreativität und Zufälligkeit der Antworten des Modells.\n\
+                                                                                     \nWertbereich 0.0 - 2.0\n\
+                                                                                      Standardwert: 0.7\n\nJe höher der Wert, desto kreativer und unvorhersehbarer die Antworten."))
+help_menu.add_command(label="Über Tokens", command=lambda: messagebox.showinfo("Was bedeutet...", "Tokens:\n\nWie lang soll eine Antwort ausfallen?\n\
+                                                                                     \nWertbereich 100 - 4096\n\
+                                                                                      Standardwert: 2048\n\nJe höher der Wert, desto länger die Antwort."))
+help_menu.add_command(label="Über Gedächnis", command=lambda: messagebox.showinfo("Was bedeutet...", "Gedächnis:\n\nMaximale Antworten die im Chatverlauf berücksicht werden\n\
+                                                                                     \nWertbereich 1 - 20\n\
+                                                                                      Standardwert: 10\n\nJe höher der Wert, desto mehr Antworten werden berücksichtigt."))
 menu_bar.add_cascade(label="Hilfe", menu=help_menu)
 
 # Menüleiste dem Fenster hinzufügen

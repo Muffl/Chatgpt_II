@@ -31,7 +31,6 @@ Python 3.8+
 Pakete: openai, tkinter, python-dotenv
 
 Eine .env-Datei mit folgendem Eintrag:
-
 OPENAI_API_KEY=dein_api_key
 
 ▶️ Start
@@ -39,6 +38,9 @@ OPENAI_API_KEY=dein_api_key
 python ChatGPT_V011.py
 
 📁 Hinweise
+
+Es muss ein eigener API-Key von OPENAI verwendet werden.
+Du benötigst dazu eine CHATGPT+ oder höhere Lizenz
 
 Windows-Support mit individuellem App-Icon.
 

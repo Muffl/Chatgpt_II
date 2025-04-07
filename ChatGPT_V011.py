@@ -12,7 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 if not openai.api_key:
     print("Fehler: OPENAI_API_KEY ist nicht gesetzt. Bitte überprüfe die .env-Datei.")
-    exit(1)
+    exit()
 
 # Globale Variable für das ausgewählte Modell
 selected_model = "gpt-4o"  # Standardmodell
@@ -204,6 +204,10 @@ def new_chat():
 # GUI erstellen
 root = tk.Tk()
 root.title("ChatGPT von Muffl")
+root.geometry("840x820") # Breite x Höhe
+root.resizable(0,0) # Fenster nicht resizable machen
+
+
 # Icon hinzufügen
 icon_path = "Icon.ico"
 if os.path.exists(icon_path):

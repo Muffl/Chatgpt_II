@@ -40,6 +40,6 @@ Die Implementierung dieser Funktionen würde das Benutzererlebnis erheblich verb
 
 
 Drucken des Chatverlaufs
-Hell/Dunkel Modus
+Hell/Dunkel Modus ERLEDIGT
 Programm in mehrere Teile zerlegen
-Button "Alle Parameter auf Standard setzen"
+Button "Alle Parameter auf Standard setzen" ERLEDIGT

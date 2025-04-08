@@ -1,0 +1,39 @@
+Hier sind einige Funktionen, die dem Programm hinzugefügt werden könnten:
+
+### 1. **Speichern und Laden von Chatverläufen**
+- **Funktionalität:** Dem Benutzer ermöglichen, den aktuellen Chatverlauf in einer Datei zu speichern und später erneut zu laden.
+- **Implementierungshinweise:** 
+  - Verwenden Sie Dateidialoge (`tkinter.filedialog`) zum Speichern und Laden von Dateien.
+
+### 2. **Benutzerprofilmanagement**
+- **Funktionalität:** Unterstützung für mehrere Benutzer mit individuellen Einstellungen und Chat-Verläufen.
+- **Implementierungshinweise:**
+  - Einführung eines Systems zur Anmeldung oder Auswahl eines Profils.
+  - Speichern benutzerspezifischer Daten in einer Struktur wie JSON-Dateien oder einer kleinen Datenbank.
+
+### 3. **Chat Exportierung**
+- **Funktionalität:** Möglichkeit, den Chatverlauf als PDF oder Textdatei zu exportieren.
+- **Implementierungshinweise:**
+  - Verwendung von Bibliotheken wie `reportlab` für PDF-Erstellung.
+
+### 4. **Erweiterte Modellauswahl**
+- **Funktionalität:** Hinzufügen neuer Modelloptionen, wenn OpenAI neue Modelle veröffentlicht.
+- **Implementierungshinweise:**
+  - Automatische Abfrage verfügbarer Modelle durch OpenAI API (falls unterstützt).
+
+### 5. **Sprachausgabe integrieren**
+- **Funktionalität:** Antworten des Modells können abgespielt werden, um eine barrierefreiere Nutzung zu ermöglichen.
+- **Implementierungshinweise:**
+  - Verwendung der `pyttsx3` Bibliothek für TTS (Text-to-Speech).
+
+### 6. **Automatisierte Speicherung von Konversationseinstellungen**
+- **Funktionalität:** Konversationsparameter automatisch speichern, sodass bei Neustart die letzten Einstellungen geladen werden.
+- **Implementierungshinweise:**
+  - Speichern der Einstellungen in einer `config.json` oder ähnlichem.
+
+### 7. **Statistische Analyse der Konversationen**
+- **Funktionalität:** Statistik über die Anzahl und Art der ausgetauschten Nachrichten bereitstellen.
+- **Implementierungshinweise:**
+  - Analysieren des `chat_memory` zur Erstellung von Statistiken, z.B. wie oft bestimmte Themen vorkommen.
+
+Die Implementierung dieser Funktionen würde das Benutzererlebnis erheblich verbessern und die Anwendungsfunktionalität erweitern.

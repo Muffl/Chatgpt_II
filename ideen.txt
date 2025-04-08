@@ -1,6 +1,6 @@
 Hier sind einige Funktionen, die dem Programm hinzugefügt werden könnten:
 
-### 1. **Speichern und Laden von Chatverläufen**
+### 1. **Speichern und Laden von Chatverläufen** SPEICHERN ERLEDIGT, LESEN MACHT KEINEN SINN
 - **Funktionalität:** Dem Benutzer ermöglichen, den aktuellen Chatverlauf in einer Datei zu speichern und später erneut zu laden.
 - **Implementierungshinweise:** 
   - Verwenden Sie Dateidialoge (`tkinter.filedialog`) zum Speichern und Laden von Dateien.
@@ -37,3 +37,9 @@ Hier sind einige Funktionen, die dem Programm hinzugefügt werden könnten:
   - Analysieren des `chat_memory` zur Erstellung von Statistiken, z.B. wie oft bestimmte Themen vorkommen.
 
 Die Implementierung dieser Funktionen würde das Benutzererlebnis erheblich verbessern und die Anwendungsfunktionalität erweitern.
+
+
+Drucken des Chatverlaufs
+Hell/Dunkel Modus
+Programm in mehrere Teile zerlegen
+Button "Alle Parameter auf Standard setzen"

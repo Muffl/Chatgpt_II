@@ -327,7 +327,7 @@ menu_bar.add_cascade(label="Parameter", menu=parameter_menu)
 
 # Hilfe-Menü
 help_menu = tk.Menu(menu_bar, tearoff=0)
-help_menu.add_command(label="Über", command=lambda: messagebox.showinfo("Über", "ChatGPT von Muffl\nVersion 0.11\n(c) 2025 by Muffl"))
+help_menu.add_command(label="Über", command=lambda: messagebox.showinfo("Über", "ChatGPT von Muffl\nVersion V0.13\n(c) 2025 by Muffl"))
 help_menu.add_command(label="Über Temperatur", command=lambda: messagebox.showinfo("Was bedeutet...", "Temperatur:\n\nSteuert die Kreativität und Zufälligkeit der Antworten des Modells.\n\
                                                                                      \nWertbereich 0.0 - 2.0\n\
                                                                                       Standardwert: 0.7\n\nJe höher der Wert, desto kreativer und unvorhersehbarer die Antworten."))

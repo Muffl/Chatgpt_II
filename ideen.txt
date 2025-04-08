@@ -43,3 +43,13 @@ Drucken des Chatverlaufs
 Hell/Dunkel Modus ERLEDIGT
 Programm in mehrere Teile zerlegen
 Button "Alle Parameter auf Standard setzen" ERLEDIGT
+
+Prompeingabe gesendet Anzeige hinzufügen- "Bitte warten" anzeigen
+
+Ermögliche die Wiederherstellung eines Gesprächsverlaufs und die Fortsetzung des Chats an einem späteren Zeitpunkt.
+
+Erlaube dynamische Größenänderungen des Fensters, damit die Anwendung auf verschiedenen Bildschirmgrößen besser nutzbar bleibt.
+ - Nutze Layout-Manager wie grid() oder pack() flexibler, um ein responsiveres Layout zu schaffen.
+
+Die Funktion zur Aktualisierung des Model-Labels (update_model_label()) könnte durch die Verwendung von Observer-Pattern oder Callback-Funktionen in tkinter effizienter gehandhabt werden.
+ - Kombiniere ähnliche Funktionen wie das Einstellen der Parameter (Tokens, Temperatur) mit einer generischen Funktion und spezifischen Parametern.

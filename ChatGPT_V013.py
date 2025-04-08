@@ -6,6 +6,7 @@ from tkinter import scrolledtext, messagebox, filedialog
 from dotenv import load_dotenv
 from ctypes import windll
 
+
 # Lese den API aus der .env Datei
 load_dotenv()
 
@@ -241,6 +242,42 @@ def load_chat_history():
         except Exception as e:
             messagebox.showerror("Fehler", f"Fehler beim Laden der Datei: {e}")
 '''
+
+# Funktion für Darkmode
+def toggle_darkmode():
+    """Schaltet den Darkmode ein oder aus."""
+    dark_bg = "#2E2E2E"  # Dunkelgrauer Hintergrund
+    dark_fg = "#FFFFFF"  # Weiße Schrift
+    light_bg = "#F0F0F0"  # Standard-Hintergrund
+    light_fg = "#000000"  # Standard-Schriftfarbe
+
+    if root["bg"] == dark_bg:  # Wenn Darkmode aktiv ist, zurücksetzen
+        root.config(bg=light_bg)
+        chat_history.config(bg=light_bg, fg=light_fg, insertbackground=light_fg)
+        user_entry.config(bg=light_bg, fg="grey", insertbackground=light_fg)
+        model_label.config(bg=light_bg, fg=light_fg)
+        send_button.config(bg=light_bg, fg=light_fg)
+        break_button.config(bg=light_bg, fg=light_fg)
+        new_chat_button.config(bg=light_bg, fg=light_fg)
+    else:  # Darkmode aktivieren
+        root.config(bg=dark_bg)
+        chat_history.config(bg=dark_bg, fg=dark_fg, insertbackground=dark_fg)
+        user_entry.config(bg=dark_bg, fg=dark_fg, insertbackground=dark_fg)  # Eingabezeile mit weißer Schrift
+        model_label.config(bg=dark_bg, fg=dark_fg)
+        send_button.config(bg=dark_bg, fg=dark_fg)
+        break_button.config(bg=dark_bg, fg=dark_fg)
+        new_chat_button.config(bg=dark_bg, fg=dark_fg)
+
+# Funktion zum Zurücksetzen der Parameter auf die Standardwerte
+def reset_parameters():
+    """Setzt alle Parameter auf die Standardwerte zurück."""
+    global max_tokens, temperature, MAX_MEMORY_LENGTH
+    max_tokens = 2048  # Standardwert für Tokens
+    temperature = 0.7  # Standardwert für Temperatur
+    MAX_MEMORY_LENGTH = 10  # Standardwert für Gedächtnislänge
+    update_model_label()  # Aktualisiere das Label
+    messagebox.showinfo("Erfolg", "Alle Parameter wurden auf die Standardwerte zurückgesetzt.")
+
 # GUI erstellen
 root = tk.Tk()
 root.title("ChatGPT von Muffl")
@@ -262,9 +299,9 @@ menu_bar = tk.Menu(root)
 
 # Datei-Menü
 file_menu = tk.Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Beenden", command=root.quit)
-file_menu.add_command(label="Chatverlauf speichern", command=save_chat_history)
+file_menu.add_command(label="Chatverlauf speichern", command=save_chat_history) # Funktion zum Speichern des Chatverlaufs
 # file_menu.add_command(label="Chatverlauf laden", command=load_chat_history) # Funktion zum Laden des Chatverlaufs ist noch nicht implementiert
+file_menu.add_command(label="Beenden", command=root.quit)
 menu_bar.add_cascade(label="Datei", menu=file_menu)
 
 # Model-Menü
@@ -282,6 +319,9 @@ parameter_menu = tk.Menu(menu_bar, tearoff=0)
 parameter_menu.add_command(label="Temperatur einstellen", command=set_temperature)
 parameter_menu.add_command(label="Tokens einstellen", command=set_max_tokens)
 parameter_menu.add_command(label="Gedächtnis einstellen", command=set_memory_length)
+parameter_menu.add_command(label="Alle Parameter auf Standard setzen", command=reset_parameters)
+parameter_menu.add_command(label="Darkmode ein/aus", command=toggle_darkmode)
+
 
 menu_bar.add_cascade(label="Parameter", menu=parameter_menu)
 

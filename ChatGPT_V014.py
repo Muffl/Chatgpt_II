@@ -139,41 +139,73 @@ def chat_with_gpt():
     except Exception as e:
         return f"Ein Fehler ist aufgetreten: {e}"
 
+# Globale Variable, um den Verarbeitungsstatus zu verfolgen
+is_processing = False
+
 def send_message(event=None):
     """Sendet eine Nachricht und zeigt die Antwort im Chatverlauf an."""
-    user_input = user_entry.get()
-    if user_input.lower() == "exit":
-        root.destroy()
+    global is_processing
+
+    # Überprüfe, ob bereits eine Verarbeitung läuft
+    if is_processing:
         return
 
-    # Zeige den Benutzerinput im Chatverlauf
-    chat_history.insert(tk.END, f"Du:\n", "bold")
-    chat_history.insert(tk.END, f"{user_input}\n")
-    
-    # Setze den Eingabetext auf "Bitte warten ... Ich denke" und deaktiviere die Eingabe
-    user_entry.delete(0, tk.END)
-    user_entry.insert(0, "Bitte warten ... Ich denke")
-    user_entry.config(state="disabled")
-    root.update()  # Aktualisiere die GUI, damit der Text angezeigt wird
+    # Setze den Verarbeitungsstatus auf True
+    is_processing = True
 
-    # Füge die Benutzernachricht zum Chatverlauf hinzu
-    chat_memory.append({"role": "user", "content": user_input})
-    if len(chat_memory) > MAX_MEMORY_LENGTH:
-        chat_memory.pop(0)
+    try:
+        user_input = user_entry.get().strip()
+        if not user_input:
+            is_processing = False
+            return
 
-    # Hole die Antwort von ChatGPT
-    answer = chat_with_gpt()
+        if user_input.lower() == "exit":
+            root.destroy()
+            return
 
-    # Zeige die Antwort im Chatverlauf
-    chat_history.insert(tk.END, "ChatGPT:\n", "bold")
-    chat_history.insert(tk.END, f"{answer}\n\n")
-    chat_memory.append({"role": "assistant", "content": answer})
-    chat_history.see(tk.END)
+        # Deaktiviere den Senden-Button und die Enter-Taste
+        send_button.config(state="disabled")
+        user_entry.unbind("<Return>")
 
-    # Aktiviere die Eingabe wieder und lösche den Text
-    user_entry.config(state="normal")
-    user_entry.delete(0, tk.END)
-    chat_history.see(tk.END)
+        # Zeige den Benutzerinput im Chatverlauf
+        chat_history.insert(tk.END, f"Du:\n", "bold")
+        chat_history.insert(tk.END, f"{user_input}\n")
+
+        # Setze den Eingabetext auf "Bitte warten ... Ich denke" und deaktiviere die Eingabe
+        user_entry.delete(0, tk.END)
+        user_entry.insert(0, "Bitte warten ... Ich denke")
+        user_entry.config(state="disabled")
+        root.update()  # Aktualisiere die GUI, damit der Text angezeigt wird
+
+        # Füge die Benutzernachricht zum Chatverlauf hinzu
+        chat_memory.append({"role": "user", "content": user_input})
+        if len(chat_memory) > MAX_MEMORY_LENGTH:
+            chat_memory.pop(0)
+
+        # Hole die Antwort von ChatGPT
+        answer = chat_with_gpt()
+
+        # Zeige die Antwort im Chatverlauf
+        chat_history.insert(tk.END, "ChatGPT:\n", "bold")
+        chat_history.insert(tk.END, f"{answer}\n\n")
+        chat_memory.append({"role": "assistant", "content": answer})
+        chat_history.see(tk.END)
+
+    except Exception as e:
+        chat_history.insert(tk.END, f"Fehler: {e}\n", "bold")
+
+    finally:
+        # Aktiviere die Eingabe wieder und lösche den Text
+        user_entry.config(state="normal")
+        user_entry.delete(0, tk.END)
+        chat_history.see(tk.END)
+
+        # Aktiviere den Senden-Button und die Enter-Taste wieder
+        send_button.config(state="normal")
+        user_entry.bind("<Return>", send_message)
+
+        # Setze den Verarbeitungsstatus auf False
+        is_processing = False
 
 def new_chat():
     """Startet einen neuen Chat."""

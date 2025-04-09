@@ -1,6 +1,6 @@
 Hier sind einige Funktionen, die dem Programm hinzugefügt werden könnten:
 
-### 1. **Speichern und Laden von Chatverläufen** SPEICHERN ERLEDIGT, LESEN MACHT KEINEN SINN
+### 1. **Speichern und Laden von Chatverläufen** SPEICHERN ERLEDIGT, LESEN MACHT KEINEN SINN DA POGRAMM AUSGEBFENSTER NICHT LIEST
 - **Funktionalität:** Dem Benutzer ermöglichen, den aktuellen Chatverlauf in einer Datei zu speichern und später erneut zu laden.
 - **Implementierungshinweise:** 
   - Verwenden Sie Dateidialoge (`tkinter.filedialog`) zum Speichern und Laden von Dateien.
@@ -44,7 +44,7 @@ Hell/Dunkel Modus ERLEDIGT
 Programm in mehrere Teile zerlegen
 Button "Alle Parameter auf Standard setzen" ERLEDIGT
 
-Prompeingabe gesendet Anzeige hinzufügen- "Bitte warten" anzeigen
+Prompeingabe gesendet Anzeige hinzufügen- "Bitte warten" anzeigen ERLEDIGT
 
 Ermögliche die Wiederherstellung eines Gesprächsverlaufs und die Fortsetzung des Chats an einem späteren Zeitpunkt.
 

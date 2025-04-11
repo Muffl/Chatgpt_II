@@ -300,7 +300,7 @@ parameter_menu.add_command(label="Darkmode ein/aus", command=toggle_darkmode)
 menu_bar.add_cascade(label="Parameter", menu=parameter_menu)
 
 help_menu = tk.Menu(menu_bar, tearoff=0)
-help_menu.add_command(label="Über", command=lambda: messagebox.showinfo("Über", "ChatGPT von Muffl\nVersion V0.13\n(c) 2025 by Muffl"))
+help_menu.add_command(label="Über", command=lambda: messagebox.showinfo("Über", "ChatGPT von Muffl\nVersion V0.14\n(c) 2025 by Muffl"))
 help_menu.add_command(label="Über Temperatur", command=lambda: messagebox.showinfo("Was bedeutet...", "Temperatur:\n\nSteuert die Kreativität und Zufälligkeit der Antworten des Modells.\n\nWertbereich 0.0 - 2.0\nStandardwert: 0.7"))
 help_menu.add_command(label="Über Tokens", command=lambda: messagebox.showinfo("Was bedeutet...", "Tokens:\n\nWie lang soll eine Antwort ausfallen?\n\nWertbereich 100 - 4096\nStandardwert: 2048"))
 help_menu.add_command(label="Über Gedächtnis", command=lambda: messagebox.showinfo("Was bedeutet...", "Gedächtnis:\n\nMaximale Antworten, die im Chatverlauf berücksichtigt werden.\n\nWertbereich 1 - 20\nStandardwert: 10"))

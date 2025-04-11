@@ -236,16 +236,18 @@ def toggle_darkmode():
     dark_fg = "#FFFFFF"
     light_bg = "#F0F0F0"
     light_fg = "#000000"
-
+  
     if root["bg"] == dark_bg:
+        # Wechsel zu Lightmode
         root.config(bg=light_bg)
         chat_history.config(bg=light_bg, fg=light_fg, insertbackground=light_fg)
-        user_entry.config(bg=light_bg, fg="grey", insertbackground=light_fg)
+        user_entry.config(bg=light_bg, fg="black", insertbackground=light_fg)
         model_label.config(bg=light_bg, fg=light_fg)
         send_button.config(bg=light_bg, fg=light_fg)
         break_button.config(bg=light_bg, fg=light_fg)
         new_chat_button.config(bg=light_bg, fg=light_fg)
     else:
+        # Wechsel zu Darkmode
         root.config(bg=dark_bg)
         chat_history.config(bg=dark_bg, fg=dark_fg, insertbackground=dark_fg)
         user_entry.config(bg=dark_bg, fg=dark_fg, insertbackground=dark_fg)
